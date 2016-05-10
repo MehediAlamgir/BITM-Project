@@ -1,0 +1,264 @@
+﻿@model UniversityMS.Models.ClassRoomAllocation
+
+@{
+    ViewBag.Title = "RoomAllocation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Class Room Allocation</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.DepartmentId, "Department", new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">Department</label>
+            <div class="col-md-10">
+
+                <select name="departmentId" id="departmentId" class="form-control">
+                    <option value="">Select Department</option>
+                    @foreach (var department in ViewBag.departments)
+                    {
+                        <option value="@department.Id">@department.DeptCode</option>
+                    }
+
+                </select><label id="deptErrorMessage" style="color: red;"></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.CourseId, "Course", new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">Course</label>
+            <div class="col-md-10">
+              
+                <select name="courseId" id="courseId" class="form-control">
+                    <option value="">Select Course</option>
+                   
+
+                </select><label id="courseErrorMessage" style="color: red;"></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.RoomId, "Room", new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">Room No</label>
+            <div class="col-md-10">
+
+                <select name="roomId" id="roomId" class="form-control">
+                    <option value=0></option>
+                    @foreach (var room in ViewBag.Rooms)
+                    {
+                        <option value="@room.Id">@room.Name</option>
+                    }
+
+                </select><label id="roomErrorMessage" style="color: red;"></label>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.DayId, "Day", new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">Day</label>
+            <div class="col-md-10">
+              
+                <select name="dayId" id="dayId" class="form-control">
+                    <option value=0></option>
+                    @foreach (var day in ViewBag.Days)
+                    {
+                        <option value="@day.Id">@day.Name</option>
+                    }
+
+                </select><label id="dayErrorMessage" style="color: red;"></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.StartTime, "From", new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">From</label>
+            <div class="col-md-10">
+             
+                <input type="time" id="startTime" name="startTime" class="form-control" /> <label id="startTimeErrorMessage" style="color: red;"></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.EndTime, "To", new { @class = "control-label col-md-2" })*@
+            <label class="control-label col-md-2">To</label>
+            <div class="col-md-10">
+             
+                <input type="time" id="endTime" name="endTime" class="form-control" /><label id="endTimeErrorMessage" style="color: red;"></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" id="submit" class="btn btn-primary btn-sm" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <label id="roomAllocateSuccessMessage" style="color: green;"></label>
+                <label id="roomAllocateErrorMessage" style="color: red;"></label>
+                <label id="roomAllocateNotPossibleMessage" style="color: red;"></label>
+            </div>
+        </div>
+    </div>
+}
+
+@*<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            $("#departmentId").change(function () {
+
+                $("#roomAllocateNotPossibleMessage").text("");
+                $("#roomAllocateSuccessMessage").text("");
+                $("#roomAllocateErrorMessage").text("");
+
+                var departmentId = $("#departmentId").val();
+                var jsonData = { deptId: departmentId };
+                $("#courseId").empty();
+                $("#courseId").append('<option value=0></option>');
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("GetCoursesByDeptId", "ClassRoomAllocation")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(jsonData),
+                    dataType: "json",
+                    success: function(data) {
+                        // alert("Success");
+                        $.each(data, function(key, value) {
+                            // alert(value.Id + " " + value.CourseCode);
+                            $("#courseId").append('<option value=' + value.Id + '>' + value.CourseCode + '</option>');
+                        });
+                    }
+                });
+            });
+
+            $("#submit").click(function() {
+                var errorValue = 0;
+                ResetErrorLabel();
+                var departmentId = $("#departmentId").val();
+                if (departmentId == 0) {
+                    $("#departmentErroMessage").text("Select One Department!");
+                    errorValue = 1;
+
+                }
+
+                var courseId = $("#courseId").val();
+                if (courseId == 0) {
+                    $("#courseErrorMessage").text("Select One Course!");
+                    errorValue = 1;
+                }
+
+                var roomId = $("#roomId").val();
+                if (roomId == 0) {
+                    $("#roomErrorMessage").text("Select One Room!");
+                    errorValue = 1;
+                }
+
+                var dayId = $("#dayId").val();
+                if (dayId == 0) {
+                    $("#dayErrorMessage").text("Select One Day!");
+                    errorValue = 1;
+                }
+
+                var time = $("#startTime").val();
+
+                if (time == "") {
+
+                    $("#startTimeErrorMessage").text("Start time is Required!");
+                    errorValue = 1;
+                }
+
+                var hour = parseInt(time.substr(0, 2));
+                var minute = parseInt(time.substr(3, 5));
+                var startTime = hour * 60 + minute;
+
+
+                time = $("#endTime").val();
+                if (time == "") {
+
+                    $("#endTimeErrorMessage").text("End time is Required!");
+                    errorValue = 1;
+                }
+
+                hour = parseInt(time.substr(0, 2));
+                minute = parseInt(time.substr(3, 5));
+                var endTime = hour * 60 + minute;
+
+
+                if (errorValue == 1) {
+                    return false;
+                }
+
+                if (startTime == endTime) {
+                    $("#roomAllocateNotPossibleMessage").text("Its not Possible to create Zero Minute Duration class");
+                    return false;
+                } else if (startTime < endTime) {
+                    var jsonData = { DepartmentId: departmentId, CourseId: courseId, RoomId: roomId, DayId: dayId, StartTime: startTime, EndTime: endTime };
+
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("SaveRoomSchedule", "ClassRoomAllocation")',
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(jsonData),
+                        dataType: "json",
+                        success: function(data) {
+                            if (data == true) {
+                                $("#roomAllocateSuccessMessage").text("Class Room Schedule Saved Successfully!");
+                                $("#departmentId").prop("selectedIndex", 0);
+                                $("#courseId").prop("selectedIndex", 0);
+                                $("#roomId").prop("selectedIndex", 0);
+                                $("#dayId").prop("selectedIndex", 0);
+                                $("#startTime").val('mm/dd/yyyy');
+                                $("#endTime").val('mm/dd/yyyy');
+                                return false;
+                            } else {
+                                $("#roomAllocateErrorMessage").text("Overlapping Problem, Change Time or Day.");
+                                return false;
+                            }
+                        }
+                    });
+
+                } else {
+                    $("#roomAllocateNotPossibleMessage").text("Invalid Time chosen");
+                }
+
+
+                return false;
+            });
+
+        });
+
+
+        function ResetErrorLabel() {
+            $("#deptErrorMessage").text("");
+            $("#courseErrorMessage").text("");
+            // $("roomAllocateSuccessMessage").text("");
+            $("#roomErrorMessage").text("");
+            $("#dayErrorMessage").text("");
+            $("#startTimeErrorMessage").text("");
+            $("#endTimeErrorMessage").text("");
+        }
+
+    </script>
+
+}

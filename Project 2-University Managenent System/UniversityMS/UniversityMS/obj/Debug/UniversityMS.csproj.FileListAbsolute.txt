@@ -1,0 +1,116 @@
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\UniversityMS.dll.config
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\UniversityMS.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\UniversityMS.pdb
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Antlr3.Runtime.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\EntityFramework.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\EntityFramework.SqlServer.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.Google.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Web.Infrastructure.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Newtonsoft.Json.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Owin.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\System.Web.Helpers.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\System.Web.Mvc.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\System.Web.Optimization.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\System.Web.Razor.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\System.Web.WebPages.Deployment.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\System.Web.WebPages.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\System.Web.WebPages.Razor.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\WebGrease.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\System.Web.Helpers.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\System.Web.Mvc.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\System.Web.Optimization.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\System.Web.Razor.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\System.Web.WebPages.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\System.Web.WebPages.Deployment.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\System.Web.WebPages.Razor.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Newtonsoft.Json.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Antlr3.Runtime.pdb
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\EntityFramework.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\EntityFramework.SqlServer.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.Google.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\obj\Debug\UniversityMS.csprojResolveAssemblyReference.cache
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\obj\Debug\UniversityMS.dll
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\obj\Debug\UniversityMS.pdb
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\obj\Debug\UniversityMS.Migrations.CreateAllTableMV1.resources
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\obj\Debug\UniversityMS.csproj.GenerateResource.Cache
+D:\Visual Studio 13\BITM\Project\Project 2\UniversityMS\UniversityMS\obj\Debug\UniversityMS.Migrations.UnmappedUsedInCourseStatusinCourseModel.resources
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\UniversityMS.dll.config
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\UniversityMS.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\UniversityMS.pdb
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Antlr3.Runtime.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\EntityFramework.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\EntityFramework.SqlServer.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.AspNet.Identity.Core.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Host.SystemWeb.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.Cookies.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.Facebook.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.Google.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.OAuth.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.Twitter.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Web.Infrastructure.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Newtonsoft.Json.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Owin.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\System.Web.Helpers.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\System.Web.Mvc.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\System.Web.Optimization.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\System.Web.Razor.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\System.Web.WebPages.Deployment.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\System.Web.WebPages.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\System.Web.WebPages.Razor.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\WebGrease.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\System.Web.Helpers.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\System.Web.Mvc.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\System.Web.Optimization.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\System.Web.Razor.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\System.Web.WebPages.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\System.Web.WebPages.Deployment.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\System.Web.WebPages.Razor.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Newtonsoft.Json.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Antlr3.Runtime.pdb
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\EntityFramework.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\EntityFramework.SqlServer.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.AspNet.Identity.Core.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.AspNet.Identity.Owin.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Host.SystemWeb.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.Facebook.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.Cookies.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.OAuth.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.Google.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.Twitter.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\obj\Debug\UniversityMS.csprojResolveAssemblyReference.cache
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\obj\Debug\UniversityMS.Migrations.CreateAllTableMV1.resources
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\obj\Debug\UniversityMS.Migrations.UnmappedUsedInCourseStatusinCourseModel.resources
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\obj\Debug\UniversityMS.csproj.GenerateResource.Cache
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\obj\Debug\UniversityMS.dll
+D:\Mehedi\Project 2\UniversityMS\UniversityMS\obj\Debug\UniversityMS.pdb

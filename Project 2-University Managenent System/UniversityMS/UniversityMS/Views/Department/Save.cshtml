@@ -1,0 +1,101 @@
+﻿@model UniversityMS.Models.Department
+
+@{
+    ViewBag.Title = "Save";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+
+    <head>
+
+    </head>
+
+    <body>
+        
+        <h2>Save Department</h2>
+        
+        <div align="center">
+            @if (@ViewBag.Message != null)
+{
+    <span class="alert alert-success" id="success-alert">@ViewBag.Message</span>
+}
+        </div>
+
+        <div>
+
+            <fieldset>
+                <legend></legend>
+
+
+                @using (Html.BeginForm("Save", "Department", FormMethod.Post, new { id = "SaveDepartmentForm" }))
+                {
+                    @Html.ValidationSummary(true)
+                    
+                    <table align="center">
+                        <tr>
+                            <td>@Html.LabelFor(m => m.DeptCode)</td>
+                            <td>@Html.TextBoxFor(m => m.DeptCode, new { id = "deptCode" })</td>
+                            <td>@Html.ValidationMessageFor(m => m.DeptCode)</td>
+                        </tr>
+                        <tr>
+                            <td>@Html.LabelFor(m => m.DeptName)</td>
+                            <td>@Html.TextBoxFor(m => m.DeptName, new { id = "deptName" })</td>
+                            <td>@Html.ValidationMessageFor(m => m.DeptName)</td>
+
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><input type="submit" id="submit" id="submit" value="Save" class="btn btn-primary btn-sm" /></td>
+                        </tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+                        <tr></tr>
+
+                    </table>
+
+                    
+                }
+                
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <label id="successMessage" style="color: green;"></label>
+                        <label id="errorMessage" style="color: red;"></label>
+                        
+                    </div>
+                </div>
+
+            </fieldset>
+
+        </div>
+        
+
+       
+        <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+        <script>
+            
+            $(document).ready(function () {
+              
+                $("#success-alert").fadeTo(2000, 500).slideUp(500, function () {
+                    $("#success-alert").alert('close');
+                });
+
+                $("#submit").click(function() {
+                    
+                    //$("#deptCode").val("");
+                    //$("#deptName").val("");
+                       $("#deptCode").text("");
+                       $("#deptName").text("");
+
+                });
+            });
+
+        </script>
+
+    </body>
+</html>
+

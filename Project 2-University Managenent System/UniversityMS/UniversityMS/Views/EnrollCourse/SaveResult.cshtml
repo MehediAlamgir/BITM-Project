@@ -1,0 +1,230 @@
+﻿@model UniversityMS.Models.EnrollCourse
+
+@{
+    ViewBag.Title = "SaveResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> Save Student Result</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RegistrationNo, "Student Reg No.", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+               
+                <select name="registrationId" id="registrationId" class="form-control">
+                    <option value="">Select Registration No</option>
+                    @foreach (var student in ViewBag.StudentList)
+                    {
+                        <option value="@student.StudentRegNo">@student.StudentRegNo</option>
+                    }
+
+                </select><label id="regErrorMessage" style="color: red"></label>
+                @Html.ValidationMessageFor(model => model.RegistrationNo)
+            </div>
+
+            @*<div class="col-md-offset-2 col-md-10">
+                <label id="RegErrorLabel" style="color: red"></label>
+            </div>*@
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Name", new { @class = "control-label col-md-2" })
+           
+            <div class="col-md-10">
+                <input type="text" name="name" id="name" readonly="readonly" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Email", new { @class = "control-label col-md-2" })
+           
+            <div class="col-md-10">
+                <input type="text" name="email" id="email" readonly="readonly" class="form-control" />
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.Label("Department", new { @class = "control-label col-md-2" })
+            
+            <div class="col-md-10">
+                <input type="text" name="department" id="department" readonly="readonly" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            @Html.Label("Course", new { @class = "control-label col-md-2" })
+           
+            <div class="col-md-10">
+                <select name="courseId" id="courseId" class="form-control">
+                    <option value="">Select Course</option>
+                </select><label id="courseErrorMessage" style="color: red"></label>
+
+            </div>
+
+            @*<div class="col-md-offset-2 col-md-10">
+                <label id="CourseErrorLabel" style="color: red"></label>
+            </div>*@
+
+        </div>
+        <div class="form-group">
+            @Html.Label("Grade", new { @class = "control-label col-md-2" })
+           
+            <div class="col-md-10">
+                <select name="gradeName" id="gradeName" class="form-control">
+                    
+                    <option value="">Select Grade Letter</option>
+
+                    @foreach (var grade in ViewBag.GradeList)
+                    {
+                        <option value=@grade.GradeName>@grade.GradeName</option>
+                    }
+
+                </select><label id="gradeErrorMessage" style="color: red"></label>
+            </div>
+
+            @*<div class="col-md-offset-2 col-md-10">
+                <label id="GradeErrorLabel" style="color: red"></label>
+            </div>*@
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="submit" name="submit" value="Save" class="btn btn-primary btn-sm" />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <label id="saveSucessMessage" style="color: green"></label>
+            <label id="saveErrorMessage" style="color: red"></label>
+        </div>
+    </div>
+}
+
+
+@section Scripts{
+
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
+
+     <script>
+        $(document).ready(function() {
+            $("#gradeName").change(function() {
+                $("#gradeErrorMessage").text("");
+                $("#saveSucessMessage").text("");
+                $("#saveErrorMessage").text("");
+            });
+
+            $("#courseId").change(function() {
+                $("#courseErrorMessage").text("");
+                $("#saveSucessMessage").text("");
+                $("#saveErrorMessage").text("");
+            });
+
+            $("#registrationId").change(function () {
+
+                var regNo = $("#registrationId").val();
+
+               // alert("Registration No: " + regNo);
+
+                var jsonData = { studentRegNo: regNo };
+                 $("#registrationIdErrorMessage").text("");
+                 $.ajax({
+                     type: "POST",
+                     url: '@Url.Action("GetStudentById","EnrollCourse")',
+                     contentType: "application/json; charset=utf-8",
+                     data: JSON.stringify(jsonData),
+                     dataType:"json",
+                     success: function (data) {
+                       //  alert("Success "); 
+                         $.each(data, function (key, value) {
+
+                             $("#name").val(value.Name);
+                             $("#email").val(value.Email);
+                             $("#department").val(value.Department.DeptCode);
+
+                            // alert("name: " + value.Name);
+                             $("#courseId").empty();
+                            $("#courseId").append('<option value=' +""+ '>' +"Select Course"+ '</option>');
+                             var jsonData1 = { regNo: regNo };
+                             $.ajax({
+                                 type: "POST",
+                                 url: '@Url.Action("GetCoursesbyRegNo","EnrollCourse")',
+                                 contentType: "application/json; charset=utf-8",
+                                 data: JSON.stringify(jsonData1),
+                                 dataType: "json",
+                                 success: function (data1) {
+                                     $.each(data1, function (key1, value1) {
+                                        // alert(value1.Id + " " + value1.CourseCode);
+                                        // alert("Select course");
+                                         $("#courseId").append('<option value=' + value1.CourseId + '>' + value1.Course.CourseCode + '</option>');
+                                     });
+                                 },
+                             });
+                         });
+                     },
+                 });
+
+                 return false;
+             });
+
+            $("#submit").click(function () {
+
+                var regNo = $("#registrationId").val();
+                if (regNo == "") {
+                    $("#regErrorMessage").text("Select Your Registration No");
+                    return false;
+                }
+
+                var courseId = $("#courseId").val();
+                if (courseId == "") {
+                    $("#courseErrorMessage").text("Select Course");
+                    return false;
+                }
+
+                var grade = $("#gradeName").val();
+                if (grade == "") {
+                    $("#gradeErrorMessage").text("Select Grade");
+                    return false;
+                }
+
+
+                var jsonData = { RegistrationNo: regNo, CourseId: courseId, CourseGrade: grade };
+
+                            $.ajax({
+                                type: "POST",
+                                url: '@Url.Action("EnrollStudentToCourse", "EnrollCourse")',
+                                contentType: "application/json; charset=utf-8",
+                                data: JSON.stringify(jsonData),
+                                dataType: "json",
+                                success: function (data) {
+                                    $("#saveSucessMessage").text("Result Saved Successfully!");
+                                    $("#registrationId").prop("selectedIndex", 0);
+                                    $("#name").val("");
+                                    $("#email").val("");
+                                    $("#department").val("");
+                                    $("#courseId").empty();
+                                    $("#gradeName").prop("selectedIndex", 0);
+                                },
+
+                            });
+                            return false;
+                });
+        });
+    </script>
+
+}
+

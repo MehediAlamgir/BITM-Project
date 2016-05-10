@@ -1,0 +1,83 @@
+﻿@model UniversityMS.Models.Teacher
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Teacher</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Department.DeptCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.DeptCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Designation.DesignationName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designation.DesignationName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TeacherContactNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TeacherContactNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreditTaken)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreditTaken)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreditLeft)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreditLeft)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

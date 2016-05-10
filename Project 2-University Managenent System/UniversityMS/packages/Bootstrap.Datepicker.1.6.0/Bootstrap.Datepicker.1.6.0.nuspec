@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Bootstrap.Datepicker</id>
+    <version>1.6.0</version>
+    <title>Bootstrap Datepicker</title>
+    <authors>Stefan Petre, Andrew Rowls</authors>
+    <owners>Stefan Petre, Andrew Rowls</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://github.com/eternicode/bootstrap-datepicker</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>Add datepicker picker to field or to any other element.</description>
+    <summary />
+    <releaseNotes>https://github.com/eternicode/bootstrap-datepicker/releases/tag/v1.6.0</releaseNotes>
+    <copyright>Copyright 2012 Stefan Petre Improvements by Andrew Rowls</copyright>
+    <tags>Bootstrap Datepicker</tags>
+    <dependencies>
+      <dependency id="bootstrap" version="2.3.1" />
+    </dependencies>
+  </metadata>
+</package>

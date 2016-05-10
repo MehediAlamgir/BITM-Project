@@ -1,0 +1,75 @@
+﻿@model UniversityMS.Models.ClassRoomAllocation
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ClassRoomAllocation</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Course.CourseCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Course.CourseCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Day.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Day.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department.DeptCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.DeptCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Room.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Room.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EndTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EndTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomStatus)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,268 @@
+﻿@model UniversityMS.Models.EnrollCourse
+
+@{
+    ViewBag.Title = "ViewResult";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2> View Result</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RegistrationNo, "Student Reg. No.", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+               
+                <select name="registrationId" id="registrationId" class="form-control">
+                    
+                    <option value="">Select Reg No</option>
+                    @foreach (var student in ViewBag.StudentList)
+                    {
+                        <option value="@student.StudentRegNo">@student.StudentRegNo</option>
+                    }
+
+                </select>
+
+                @Html.ValidationMessageFor(model => model.RegistrationNo)
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Name", new { @class = "control-label col-md-2" })
+            
+            <div class="col-md-10">
+                
+                <input type="text" name="name" id="name" readonly="readonly" class="form-control" />
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            
+            @Html.Label("Email", new { @class = "control-label col-md-2" })
+            
+            <div class="col-md-10">
+                <input type="text" name="email" id="email" readonly="readonly" class="form-control" />
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.Label("Department", new { @class = "control-label col-md-2" })
+           
+            <div class="col-md-10">
+                <input type="text" name="department" id="department" readonly="readonly" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="submit" name="submit" value="Make PDF" class="btn btn-primary btn-sm" />
+            </div>
+        </div>
+
+    </div>
+
+    <div id="showTableDiv" class="col-sm-offset-1 col-sm-10">
+
+    </div>
+  
+    <div></div>
+
+    <div id="PdfValue">
+
+        <div class="form-horizontal">
+            
+            <div class="headingSection" style="text-align: center">
+                
+                <h1>University Course and Result Management System</h1>
+               
+                <h3>Student Result Sheet</h3>
+
+            </div>
+
+            <br />
+            <br />
+            <br />
+
+            <div class="form-group">
+                @Html.Label("Name :", new { @class = "control-label col-md-2" })
+
+                <label id="studentName" class="control-label col-md-2"></label>
+
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Registration No :", new { @class = "control-label col-md-2" })
+
+                <label id="studentRegNo" class="control-label col-md-2"></label>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Email :", new { @class = "control-label col-md-2" })
+
+                <label id="studentEmail" class="control-label col-md-2"></label>
+
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Department :", new { @class = "control-label col-md-2" })
+
+                <label id="studentDepartment" class="control-label col-md-2"></label>
+            </div>
+
+            <div class="form-group">
+                @Html.Label("Date :", new { @class = "control-label col-md-2" })
+
+                <label id="date" class="control-label col-md-2"></label>
+            </div>
+
+            <br />
+            <br />
+
+            <div id="showPdfDiv">
+
+            </div>
+            <div id="editor"></div>
+
+        </div>
+    </div>
+    
+}
+
+
+
+
+
+@section Scripts
+{
+    
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
+    <script src="~/Scripts/jquery-2.2.3.min.js"></script>
+    <script src="~/Scripts/jquery-printme.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#PdfValue").hide();
+
+
+            $("#submit").click(function () {
+
+                $("#PdfValue").printMe();
+              //  $("#PdfValue").printMe({ "path": "" });
+            });
+
+            $("#resultTable").hide();
+
+            $("#registrationId").change(function() {
+                var regNo = $("#registrationId").val();
+                var jsonData = { studentRegNo: regNo };
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("GetStudentById","EnrollCourse")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(jsonData),
+                    dataType:"json",
+                    success: function (data) {
+                        $.each(data, function (key, value) {
+
+                            $("#name").val(value.Name);
+                            $("#email").val(value.Email);
+                            $("#department").val(value.Department.DeptCode);
+
+                            var jsonData1 = { regNo: regNo };
+                            //alert(deptCode);
+                            $.ajax({
+                                type: "POST",
+                                url: '@Url.Action("GetCoursesbyRegNo","EnrollCourse")',
+                                contentType: "application/json; charset=utf-8",
+                                data: JSON.stringify(jsonData1),
+                                dataType: "json",
+                                success: function (data1) {
+
+                                    var table = $('<table id="resultTable" class="table">');
+                                    var tablePdf = $('<table id="resultTablePdf" class="tablePdf" border="1" > style="border:1 solid #cccccc"');
+                                   // var thead = $('<thead></thead>');
+                                   // var theadPdf = $('<thead></thead>');
+                                    table.append('<th>Course Code</th>');
+                                    tablePdf.append('<th>Course Code</th>');
+
+                                    table.append('<th>Name</th>');
+                                    tablePdf.append('<th>Name</th>');
+
+                                    table.append('<th>Grade</th>');
+                                    tablePdf.append('<th>Grade</th>');
+
+                                    table.css('background-color', '#22D7A0');
+                                   
+                                   // table.append(thead);
+                                   // tablePdf.append(theadPdf);
+
+                                    $.each(data1, function (key1, value1) {
+
+                                        var trow = $('<tr></tr>');
+                                        var trowPdf = $('<tr></tr>');
+
+                                        var grade = value1.CourseGrade;
+                                        if (grade == null)
+                                            grade = 'Not Graded Yet';
+
+                                        trow.append('<td>' + value1.Course.CourseCode + '</td>');
+                                        trowPdf.append('<td>' + value1.Course.CourseCode + '</td>');
+
+                                        trow.append('<td>' + value1.Course.CourseName + '</td>');
+                                        trowPdf.append('<td>' + value1.Course.CourseName + '</td>');
+
+                                        trow.append('<td>' + grade + '</td>');
+                                        trowPdf.append('<td>' + grade + '</td>');
+
+                                        table.append(trow);
+                                        tablePdf.append(trowPdf);
+
+                                        
+                                    });
+                                    table.append("</table>");
+                                    tablePdf.append("</table>");
+
+                                    $("tr:odd", table).css('background-color', '#FADFE1');
+                                    $("tr:odd", tablePdf).css('background-color', '#D2D7D3');
+
+                                    $("tr:even", table).css('background-color', '#D2D7A3');
+                                    $("tr:even", tablePdf).css('background-color', '#D2D7D3');
+
+                                    $("#showTableDiv").html(table);
+                                    $("#showPdfDiv").html(tablePdf);
+
+                                    document.getElementById("studentName").innerHTML = value.Name;
+                                    document.getElementById("studentRegNo").innerHTML = regNo;
+                                    document.getElementById("studentEmail").innerHTML = value.Email;
+                                    document.getElementById("studentDepartment").innerHTML = value.Department.DeptCode;
+                                    var currentDate = new Date();
+                                    document.getElementById("date").innerHTML = currentDate.getDate()+"/"+(currentDate.getMonth()+1)+"/"+currentDate.getFullYear();
+
+                                },
+                            });
+                        });
+                    },
+                });
+
+                return false;
+            });
+        });
+
+    </script>
+
+}
+
